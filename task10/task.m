@@ -1,16 +1,16 @@
 printf("Задача 5\n");
 # определим вектор коэффициентов при уравнении, максимум которого нужно найти
-C = [3; 2; 5];
+C = [2; 3;];
 # определим слау из коэф-ов системы неравенств
-A = [5 5 2; 4 0 3; 5 8 6];
+A = [10 6; 6 20; 8 15];
 # запишем правые части неравенств в вектор
-B = [1200; 300; 800];
+B = [600; 600; 600];
 # определим типы неравенств
 ctype = "UUU";
 # определим тип искомых переменных (целые числа) и тип задачи (максимизация)
-vartype = "III"; sense = -1;
+vartype = "II"; sense = -1;
 
-[x, f, errnum, extra] = glpk(C, A, B, [0; 0; 0], [], ctype, vartype, sense);
+[x, f, errnum, extra] = glpk(C, A, B, [0; 0], [], ctype, vartype, sense)
 
 printf("%d\n", x);
 
@@ -32,7 +32,7 @@ ctype = "SSSSSSS";
 vartype = "IIIIIIIIIIII";
 sense = 1;
 
-[x, f, errnum, extra] = glpk(C, A, B, zeros(1, 12), [], ctype, vartype, sense);
+[x, f, errnum, extra] = glpk(C, A, B, zeros(1, 12), [], ctype, vartype, sense)
 
 for i = [0 1 2]
   printf("%-2d  ", x(1 + i * 4: (i + 1) * 4));
